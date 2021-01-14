@@ -1,6 +1,7 @@
 
 describe('Amazon Test',  () => {
   var EC = protractor.ExpectedConditions;
+  var price_inside_buybox ;
   it('O utilizador vai á página da Amazon',  () => {
     browser.get('https://www.amazon.es');
   });
@@ -22,26 +23,26 @@ describe('Amazon Test',  () => {
   });
 
   it('É verificado se o valor do rato é 10€ - failed', () => {
-    var price_inside_buybox = element(by.id('price_inside_buybox'));
+    price_inside_buybox = element(by.id('price_inside_buybox'));
     browser.wait(EC.textToBePresentInElement(price_inside_buybox, '9,50 €'), 5000);
     expect(price_inside_buybox.getText()).not.toEqual('10 €');
   });
 
   it('É verificado se o valor do rato é 9,50€ - pass', () => {
-    var price_inside_buybox = element(by.id('price_inside_buybox'));
+    price_inside_buybox = element(by.id('price_inside_buybox'));
     expect(price_inside_buybox.getText()).toEqual('9,50 €');
   });
 
   it('É verificado se o valor do rato (para 30 quantidades) é 64,80 € - pass', () => {    
     element(by.id('size_name_2')).click();
-    var price_inside_buybox = element(by.id('price_inside_buybox'));
+    price_inside_buybox = element(by.id('price_inside_buybox'));
     browser.wait(EC.textToBePresentInElement(price_inside_buybox, '64,80 €'), 5000);
     expect(price_inside_buybox.getText()).toEqual('64,80 €');
   });
 
   it('Ao clicar em (1 quantidade) confirmar outra vez que o valor é 9,50 € - pass', () => {
     element(by.id('size_name_0')).click();
-    var price_inside_buybox = element(by.id('price_inside_buybox'));
+    price_inside_buybox = element(by.id('price_inside_buybox'));
     browser.wait(EC.textToBePresentInElement(price_inside_buybox, '9,50 €'), 5000);
     expect(price_inside_buybox.getText()).toEqual('9,50 €');
   });
