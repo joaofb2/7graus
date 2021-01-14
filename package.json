@@ -1,0 +1,22 @@
+{
+  "name": "amazon-tests",
+  "version": "1.0.0",
+  "description": "amazon test",
+  "scripts": {
+    "postinstall": "./node_modules/webdriver-manager/bin/webdriver-manager update",
+    "test": "bash run.sh",
+    "eslint": "eslint ./page.po, ./*.js --fix"
+  },
+  "author": "joao.barros",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-plugin-jasmine": "^2.10.1",
+    "eslint-plugin-protractor": "^1.40.0",
+    "jasmine": "^3.6.3",
+    "jasmine-await": "0.0.3",
+    "jasmine-spec-reporter": "4.2.1",
+    "protractor": "^5.3.0",
+    "webdriver-manager": "^12.0.6"
+  }
+}
